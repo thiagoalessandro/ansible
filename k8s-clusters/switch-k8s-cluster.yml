@@ -1,0 +1,19 @@
+---
+- name: Switch k8s Cluster Configuration
+  hosts: local
+  #become: yes
+  tasks:
+#    - name: "K3S"
+#      copy:
+#        src: /path/to/new/k8s/config
+#        dest: ~/.kube/config
+    - name: "[DSV] Realize"
+      tags: realize-dsv
+      copy:
+        src: /home/thiago/jobs/cwi/realize/K8S/dev.conf
+        dest: ~/.kube/config
+    - name: "[HML] Realize"
+      tags: realize-hml
+      copy:
+        src: /home/thiago/jobs/cwi/realize/K8S/hml.conf
+        dest: ~/.kube/config
